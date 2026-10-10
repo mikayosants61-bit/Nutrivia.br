@@ -3,13 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Nutrivia v2 · Plataforma para Nutricionistas</title>
+<title>Nutrivia · Plataforma para Nutricionistas</title>
+<meta name="description" content="Metas, cardápio, prescrição e envio do plano ao cliente, com a sua logo.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700&display=swap">
 <style>
-:root{--bg:#f3f8ec;--card:#fff;--fg:#1f3326;--mut:#6b7d70;--line:#dbe8d3;--acc:#2f8f5b;--accfg:#fff;--soft:#e6f3dc;--warn:#c2571a;
+:root{--bg:#fbfaf6;--card:#fff;--fg:#2b3a33;--mut:#7a8a82;--line:#ece9df;--acc:#3f9f6e;--accfg:#fff;--soft:#eef7f0;--warn:#c2571a;color-scheme:light;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121815;--card:#1b2420;--fg:#e8eee9;--mut:#9aa8a0;--line:#2c3832;--acc:#58b988;--accfg:#0e1a13;--soft:#223a2d;--warn:#f0935a}}
-:root[data-theme="dark"]{--bg:#121815;--card:#1b2420;--fg:#e8eee9;--mut:#9aa8a0;--line:#2c3832;--acc:#58b988;--accfg:#0e1a13;--soft:#223a2d;--warn:#f0935a}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -68,11 +67,33 @@ a.btn{display:inline-block;text-decoration:none}
 .dm{margin:10px 0;border-left:4px solid #f08a3c;padding-left:10px}.dmh{display:flex;justify-content:space-between}.dm ul{list-style:none;padding:0;margin:4px 0}.dm li{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px dotted var(--line)}
 @media print{body *{visibility:hidden}.doc,.doc *{visibility:visible}.doc{position:absolute;left:0;top:0;width:100%;border:none}}
 textarea{width:100%;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:13px/1.45 ui-monospace,Menlo,monospace}
+.hero{background:linear-gradient(135deg,#e6f5ea,#fff1e4);color:var(--fg);box-shadow:none;border:1px solid var(--line)}.hero h1{color:var(--fg)}
+.kpi{border-left-color:#ffb98a}.dm{border-left-color:#ffb98a}.card{box-shadow:0 2px 12px rgba(60,80,60,.05)}
+#lp{background:radial-gradient(circle at 90% 0,#ffeede,transparent 35%),radial-gradient(circle at 0 20%,#e4f5e9,transparent 35%)}
+.lnav{display:flex;align-items:center;gap:10px;max-width:1040px;margin:0 auto;padding:16px}.lnav b{font:700 22px Fraunces,Georgia,serif}
+.lhero{max-width:1040px;margin:0 auto;padding:30px 16px 20px;display:grid;gap:24px;grid-template-columns:1.1fr .9fr;align-items:center}
+@media(max-width:760px){.lhero{grid-template-columns:1fr}.blob{max-width:240px;margin:0 auto}}
+.lhero h2{font:700 clamp(30px,6vw,48px)/1.1 Fraunces,Georgia,serif;margin:0 0 12px}.lhero p{color:var(--mut);font-size:17px;margin:0 0 18px}
+.blob{aspect-ratio:1;border-radius:46% 54% 60% 40%/50% 40% 60% 50%;background:linear-gradient(135deg,#dff3e4,#ffe8d6);display:flex;align-items:center;justify-content:center;font-size:clamp(70px,16vw,130px)}
+.lsec{max-width:1040px;margin:0 auto;padding:26px 16px}.lsec h3,.lcta h3{font:700 26px Fraunces,Georgia,serif;text-align:center;margin:0 0 16px}
+.lg3{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.lc{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px}.lc i{font-style:normal;font-size:30px;display:block;margin-bottom:6px}.lc b{display:block;margin-bottom:4px}.lc span{color:var(--mut);font-size:14px}
+.lcta{margin:20px auto;max-width:1040px;border-radius:28px;background:linear-gradient(135deg,#e6f5ea,#fff1e4);padding:34px 18px;text-align:center}
+.lbtn{display:inline-block;text-decoration:none;background:var(--acc);color:#fff;border:none;border-radius:99px;padding:13px 26px;font:700 16px Nunito,sans-serif;cursor:pointer;box-shadow:0 6px 16px rgba(63,159,110,.3)}
+.lbtn.o{background:#fff;color:var(--fg);box-shadow:none;border:1px solid var(--line);margin-left:8px}
+.lf{text-align:center;color:var(--mut);font-size:12px;padding:18px 16px 30px;margin:0}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <div class="hero"><div class="hl" id="hl">🥗</div><div><h1 id="hn">Nutrivia</h1><p>Nutrição inteligente, do cálculo ao cardápio.</p></div><div class="fr">🥑🍎🥕🥦</div></div>
+<div id="lp"><div class="lnav"><span style="font-size:26px">🥗</span><b>Nutrivia</b><button class="lbtn" style="margin-left:auto;padding:9px 18px" data-go="1">Abrir o app</button></div>
+<div class="lhero"><div><h2>Planos alimentares prontos em minutos, com a sua marca.</h2><p>Calcule metas, monte o cardápio, ajuste trocas e envie ao cliente pelo WhatsApp. Tudo em um só lugar, no celular ou no computador.</p><button class="lbtn" data-go="1">Começar agora</button><a class="lbtn o" href="#como">Como funciona</a></div><div class="blob">🥗</div></div>
+<div class="lsec" id="como"><h3>Como funciona</h3><div class="lg3"><div class="lc"><i>1️⃣</i><b>Cadastre o cliente</b><span>Ficha completa com restrições, rotina e medidas.</span></div><div class="lc"><i>2️⃣</i><b>Calcule e monte</b><span>Metas sugeridas por objetivo e cardápio com totais em tempo real.</span></div><div class="lc"><i>3️⃣</i><b>Envie com a sua logo</b><span>Cartão pronto para WhatsApp, e-mail ou PDF.</span></div></div></div>
+<div class="lsec"><h3>Tudo o que o dia a dia pede</h3><div class="lg3"><div class="lc"><i>🎯</i><b>Metas automáticas</b><span>TMB, GET e macros por objetivo, tudo editável.</span></div><div class="lc"><i>🍽️</i><b>Cardápio com trocas</b><span>Troque alimentos mantendo o mesmo macro.</span></div><div class="lc"><i>📝</i><b>Prescrição dupla</b><span>Versão técnica e versão simples para o paciente.</span></div><div class="lc"><i>🛒</i><b>Lista de compras</b><span>Soma automática para quantos dias você quiser.</span></div><div class="lc"><i>📈</i><b>Evolução</b><span>Retornos registrados com gráfico de peso.</span></div><div class="lc"><i>🔒</i><b>Privacidade</b><span>Dados salvos no seu navegador.</span></div></div></div>
+<div class="lsec"><h3>Para todo tipo de atendimento</h3><div class="chips" style="justify-content:center"><span>Clínico</span><span>Esportivo</span><span>Gestantes</span><span>Idosos</span><span>Controle glicêmico</span><span>Renal</span></div></div>
+<div class="lcta"><h3 style="margin-top:0">Pronto para testar?</h3><p style="color:var(--mut)">Leva menos de 5 minutos para montar o primeiro plano.</p><button class="lbtn" data-go="1">Abrir o Nutrivia</button></div>
+<p class="lf">O Nutrivia é uma ferramenta de apoio: a decisão clínica é sempre do nutricionista.</p></div>
+<div class="wrap" id="app" hidden>
+  <div class="hero"><div class="hl" id="hl">🥗</div><div><h1 id="hn">Nutrivia</h1><p>Nutrição inteligente, do cálculo ao cardápio.</p></div><button class="btn" data-go="0" style="margin-left:auto">← Início</button></div>
   
   <div class="tabs"><button class="on" data-tab="pac">👤 Cliente</button><button data-tab="metas">🎯 Metas</button><button data-tab="cardapio">🍽️ Cardápio</button><button data-tab="presc">📝 Prescrição</button><button data-tab="env">📤 Enviar</button><button data-tab="compras">🛒 Compras</button></div>
 
@@ -275,6 +296,9 @@ function envr(){if(!ed)gen();const w=v("w"),n=$("pname").value||"cliente",T={k:0
  $("doc").innerHTML=`<div class="dh"><div class="hl">${PR.logo?`<img src="${PR.logo}" alt="logo">`:"🥗"}</div><div><b>${esc(PR.pn||"Seu nutricionista")}</b><br><small>${PR.pcrn?"CRN "+esc(PR.pcrn)+" · ":""}${esc(PR.pcon||"")}</small></div></div><h2>Plano alimentar de ${esc(n)}</h2><p class="note">${new Date().toLocaleDateString("pt-BR")} · Objetivo: ${$("goal").selectedOptions[0].text}</p><div class="chips"><span>🔥 ${r0(T.k)} kcal</span><span>🥩 P ${r0(T.p)} g</span><span>🍚 C ${r0(T.c)} g</span><span>🥑 G ${r0(T.g)} g</span><span>💧 ${r1(w*.035)} L</span></div>${ms}<p class="note">Dicas: beba água ao longo do dia, coma com calma e, se algo não cair bem, peça uma troca. Seu plano será ajustado nos retornos.</p>`;
  $("msg").value=`${$("ppac").value}\n\n— ${PR.pn||""} ${PR.pcrn?"CRN "+PR.pcrn:""} ${PR.pcon||""}`.trim();links()}
 brand();render();calc();pl();evo();
+function go(a){$("lp").hidden=a;$("app").hidden=!a;window.scrollTo(0,0);try{history.replaceState(null,"",a?"#app":location.pathname)}catch(e){}}
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go==="1")));
+if(location.hash==="#app")go(true);
 </script>
 </body>
 </html>
